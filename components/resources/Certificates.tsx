@@ -1,10 +1,9 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { certificatesData } from "@/data/certificatesData";
 
-// ১. টাইপ ডেফিনিশন
 interface Certificate {
   id: number;
   category: string;
@@ -13,17 +12,17 @@ interface Certificate {
 }
 
 // Framer Motion Variants for Grid Container and Cards
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.15, // একটির পর আরেকটি কার্ড সুন্দরভাবে সিকোয়েন্সে আসবে
+      staggerChildren: 0.15,
     },
   },
 };
 
-const cardVariants = {
+const cardVariants: Variants = {
   hidden: { opacity: 0, y: 30 },
   visible: {
     opacity: 1,

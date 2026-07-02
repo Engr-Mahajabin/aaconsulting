@@ -14,6 +14,14 @@ export const metadata: Metadata = {
     template: "%s | A & A Consulting",
   },
   description: "Next-Generation Enterprise Solutions",
+  icons: {
+    icon: [
+      {
+        url: "/logo.svg",
+        type: "image/svg+xml",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {

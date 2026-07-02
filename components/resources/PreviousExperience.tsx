@@ -7,7 +7,6 @@ import { clientLogos, ClientLogo } from "@/data/clientsData";
 export default function PreviousExperience() {
   const [activeTab, setActiveTab] = useState<string>("All");
 
-  // ডাইনামিক ইন্ডাস্ট্রি ক্যাটাগরি লিস্ট
   const industries: string[] = [
     "All",
     "Aviation",
@@ -27,7 +26,7 @@ export default function PreviousExperience() {
     "State and Local Government",
   ];
 
-  // ফিল্টার লজিক
+  // Filter logic
   const filteredExperience: ClientLogo[] =
     activeTab === "All"
       ? clientLogos
@@ -35,7 +34,7 @@ export default function PreviousExperience() {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-      {/* ক্যাটাগরি ফিল্টার ট্যাব বাটন */}
+      {/* Category filter */}
       <div className="flex flex-wrap justify-center gap-3 mb-12">
         {industries.map((industry: string) => (
           <button
@@ -52,9 +51,9 @@ export default function PreviousExperience() {
         ))}
       </div>
 
-      {/* লোগো শোকেস কন্টেইনার */}
+      {/* Logo showcase container */}
       <div className="bg-white border border-slate-100 rounded-3xl p-8 sm:p-12 shadow-[0_4px_20px_rgba(0,0,0,0.02)]">
-        {/* সেকশন সাব-টাইটেল */}
+        {/* Section sub-title */}
         <div className="text-center mb-8">
           <p className="text-xs font-bold uppercase tracking-widest text-slate-400">
             {activeTab === "All"
@@ -63,7 +62,7 @@ export default function PreviousExperience() {
           </p>
         </div>
 
-        {/* লোগো গ্রিড */}
+        {/* Logo grid */}
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 items-center justify-items-center">
           {filteredExperience.map((item: ClientLogo) => (
             <div
@@ -80,7 +79,7 @@ export default function PreviousExperience() {
           ))}
         </div>
 
-        {/* সেফটি নেট */}
+        {/* No results message */}
         {filteredExperience.length === 0 && (
           <div className="text-center py-8 text-slate-400">
             No previous experience recorded in this category.

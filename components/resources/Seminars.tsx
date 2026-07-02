@@ -88,7 +88,6 @@ export default function Seminars() {
   return (
     <div className="w-full max-w-6xl mx-auto px-4 py-16 space-y-24 lg:space-y-32">
       {seminarsData.map((item, index) => {
-        // জোড় ইনডেক্স হলে টেক্সট বামে-মিডিয়া ডানে, বিজোড় হলে মিডিয়া বামে-টেক্সট ডানে
         const isEven = index % 2 === 0;
 
         return (
@@ -102,25 +101,20 @@ export default function Seminars() {
               isEven ? "lg:flex-row" : "lg:flex-row-reverse"
             }`}
           >
-            {/* ১. টেক্সট সাইড (আপনার আপলোড করা ইমেজের মত হুবহু স্ট্রাকচার) */}
             <div className="w-full lg:w-1/2 flex flex-col justify-center">
-              {/* ছোট ডট ক্যাটাগরি */}
               <div className="flex items-center gap-2 mb-3 text-sm font-semibold text-blue-600">
                 <span className="w-1.5 h-1.5 rounded-full bg-blue-600" />
                 {item.category}
               </div>
 
-              {/* বড় বোল্ড টাইটেল */}
               <h2 className="text-2xl lg:text-3xl font-black text-slate-900 leading-tight mb-4 tracking-tight">
                 {item.title}
               </h2>
 
-              {/* বিস্তারিত ডেসক্রিপশন */}
               <p className="text-slate-500 text-sm lg:text-base leading-relaxed mb-6 max-w-xl">
                 {item.description}
               </p>
 
-              {/* অ্যাকশন বাটন / এক্সপ্লোর লিঙ্ক */}
               <button
                 onClick={() => setSelectedItem(item)}
                 className="group/link flex items-center gap-1.5 text-sm font-bold text-slate-900 hover:text-blue-600 transition-colors w-fit pt-2"
@@ -135,7 +129,6 @@ export default function Seminars() {
               </button>
             </div>
 
-            {/* ২. মিডিয়া সাইড (ইমেজ বা ভিডিও থাম্বনেইল কন্টেইনার) */}
             <div className="w-full lg:w-1/2">
               <div
                 onClick={() => setSelectedItem(item)}
@@ -149,7 +142,6 @@ export default function Seminars() {
                   sizes="(max-w-6xl) 50vw"
                 />
 
-                {/* আধুনিক ওভারলে এবং কন্ট্রোল আইকন */}
                 <div className="absolute inset-0 bg-slate-950/10 group-hover:bg-slate-950/20 transition-colors duration-300 flex items-center justify-center">
                   {item.type === "video" ? (
                     <div className="w-14 h-14 bg-blue-600 text-white rounded-full flex items-center justify-center shadow-lg transform scale-95 group-hover:scale-100 transition-all duration-300">
@@ -167,7 +159,6 @@ export default function Seminars() {
         );
       })}
 
-      {/* ৩. মাল্টি-মিডিয়া লাইটবক্স মডাল (ক্লিক করলে ফুল ভিউ) */}
       <AnimatePresence>
         {selectedItem && (
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
